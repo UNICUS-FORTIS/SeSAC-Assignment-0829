@@ -10,10 +10,8 @@ import PhotosUI
 
 class MainViewController: UIViewController {
     
-    
     var userData = UserData()
     var mainView = MainView()
-    
     
     override func loadView() {
         self.view = mainView
@@ -23,36 +21,27 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
-        configureNavigationBar()
+//        configureNavigationBar()
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(updateInformation), name: .updateImage, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let vc = EditViewController.shared
-        vc.completionHandler = { user in
-            if self.userData.datas[user.id].id == user.id {
-                print(self.userData.datas[user.id].id)
-                self.userData.datas[user.id].photo = user.photo
+//    private func configureNavigationBar() {
+//        //        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Icons.addButton,
+//        //                                                            style: .plain,
+//        //                                                            target: self,
+//        //                                                            action: #selector(addButtonTapped))
+//        navigationController?.hidesBarsOnSwipe = true
+//    }
+    
+    @objc func updateInformation(notification: Notification) {
+        if let userInfo = notification.userInfo?["updateInfo"] as? User {
+            userData.updateMemberInfo(index: userInfo.id, userInfo)
+            DispatchQueue.main.async {
                 self.mainView.collectionView.reloadData()
             }
         }
-        print(#function)
-
     }
-    
-    private func configureNavigationBar() {
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Icons.addButton,
-//                                                            style: .plain,
-//                                                            target: self,
-//                                                            action: #selector(addButtonTapped))
-        navigationController?.hidesBarsOnSwipe = true
-    }
-    
-//    @objc private func addButtonTapped() {
-//        let vc = AddViewController()
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-    
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -63,7 +52,6 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell()}
         cell.user = userData.datas[indexPath.row]
-        print(#function)
         return cell
     }
 }
@@ -72,22 +60,10 @@ extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailViewController()
         
-        
-        
         DispatchQueue.main.async {
             vc.user = self.userData.datas[indexPath.row]
         }
-        
         navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
-
-//extension MainViewController: DataTransferProtocol {
-//    func updateDatas(with user: User) {
-//        userData.datas[user.id].id = user.id
-//        userData.datas[user.id].photo = user.photo
-//        print(user.photo)
-//        print("실행됨")
-//        mainView.collectionView.reloadData()
-//    }
-//}

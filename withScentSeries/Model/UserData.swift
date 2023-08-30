@@ -21,8 +21,12 @@ struct UserData {
         
         User(id: 4, photo: UIImage(named: "sample5") ?? UIImage(), writtenDate: "2023년 7월 2일", title: "페어리필드", description: "모험가  선물로 받은 베레모스타일 모자에다가 검은셔츠로 염색한 트렌디코트룩 우리딸 완존 귀여워 할렐루야!!"),
         
-        User(id: 5,photo: UIImage(named: "sample6") ?? UIImage(), writtenDate: "2023년 7월 9일", title: "페어리필드", description: "간만에 광휘세트입구 에포나 퀘스트 섬에서 기지개!"),
+        User(id: 5, photo: UIImage(named: "sample6") ?? UIImage(), writtenDate: "2023년 7월 9일", title: "페어리필드", description: "간만에 광휘세트입구 에포나 퀘스트 섬에서 기지개!"),
     ]
+    
+    mutating func updateMemberInfo(index: Int, _ user: User) {
+        datas[index] = user
+    }
     
     
 }

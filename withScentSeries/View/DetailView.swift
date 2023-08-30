@@ -51,16 +51,13 @@ class DetailView: BaseView {
         tv.textColor = .black
         return tv
     }()
-    
-    
-    
+        
     override func configureView() {
         self.addSubview(mainImageView)
         self.addSubview(titleLabel)
         self.addSubview(writtenDate)
         self.addSubview(descriptionLabel)
     }
-    
     
     override func setConstraints() {
         DispatchQueue.main.async {
@@ -97,6 +94,4 @@ class DetailView: BaseView {
         let formattedDate = dateFormatter.string(from: date)
         return formattedDate
     }
-    
-    
 }

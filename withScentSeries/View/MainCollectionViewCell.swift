@@ -18,7 +18,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     var mainImageView: UIImageView = {
        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -26,7 +26,6 @@ class MainCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configureView()
         setConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -46,6 +45,4 @@ class MainCollectionViewCell: UICollectionViewCell {
     func cellConfiguration(with: User) {
         mainImageView.image = with.photo
     }
-    
-    
 }

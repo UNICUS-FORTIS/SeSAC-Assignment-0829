@@ -24,10 +24,10 @@ extension UICollectionView {
         let height = UIScreen.main.bounds.height - ( spacing * CGFloat(numberOfaxis) )
         layout.itemSize = CGSize(width: width/CGFloat(numberOfCrossAxis), height: height/CGFloat(numberOfaxis))
         layout.sectionInset = UIEdgeInsets(
-            top: 8,
-            left: spacing,
-            bottom: 8,
-            right: spacing)
+            top: spacing,
+            left: 0,
+            bottom: spacing,
+            right: 0)
         
         return layout
     }

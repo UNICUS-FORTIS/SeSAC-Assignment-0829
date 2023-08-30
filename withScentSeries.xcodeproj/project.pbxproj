@@ -25,7 +25,7 @@
 		DE6151C12A9E67F900CD51A1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C02A9E67F900CD51A1 /* DetailViewController.swift */; };
 		DE6151C32A9E680A00CD51A1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C22A9E680A00CD51A1 /* DetailView.swift */; };
 		DE6151C62A9E684800CD51A1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C52A9E684800CD51A1 /* BaseView.swift */; };
-		DE6151C82A9E7E4500CD51A1 /* DatatransferProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C72A9E7E4500CD51A1 /* DatatransferProtocol.swift */; };
+		DEA11F762A9EBCB4003BB5A9 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA11F752A9EBCB4003BB5A9 /* NotificationName+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,7 @@
 		DE6151C02A9E67F900CD51A1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DE6151C22A9E680A00CD51A1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DE6151C52A9E684800CD51A1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		DE6151C72A9E7E4500CD51A1 /* DatatransferProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatatransferProtocol.swift; sourceTree = "<group>"; };
+		DEA11F752A9EBCB4003BB5A9 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				DE062BCF2A9E48BE006A7B1B /* ReusableProtocols.swift */,
-				DE6151C72A9E7E4500CD51A1 /* DatatransferProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -148,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DE062BC92A9E3D7B006A7B1B /* CollectionView+Extension.swift */,
+				DEA11F752A9EBCB4003BB5A9 /* NotificationName+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,12 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE6151C12A9E67F900CD51A1 /* DetailViewController.swift in Sources */,
+				DEA11F762A9EBCB4003BB5A9 /* NotificationName+Extension.swift in Sources */,
 				DE062BCE2A9E482B006A7B1B /* MainCollectionViewCell.swift in Sources */,
 				DE062BC42A9E39AA006A7B1B /* User.swift in Sources */,
 				DE6151C32A9E680A00CD51A1 /* DetailView.swift in Sources */,
 				DE062BC82A9E3CCC006A7B1B /* MainView.swift in Sources */,
 				DE062BA32A9E2A56006A7B1B /* MainViewController.swift in Sources */,
-				DE6151C82A9E7E4500CD51A1 /* DatatransferProtocol.swift in Sources */,
 				DE062BC62A9E3BA9006A7B1B /* EditViewController.swift in Sources */,
 				DE062BCA2A9E3D7B006A7B1B /* CollectionView+Extension.swift in Sources */,
 				DE6151BF2A9E61E300CD51A1 /* UserData.swift in Sources */,

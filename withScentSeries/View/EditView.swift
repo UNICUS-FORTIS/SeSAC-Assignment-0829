@@ -85,9 +85,7 @@ class EditView: BaseView {
             make.height.equalTo(self.safeAreaLayoutGuide)
         }
     }
-    
-
-    
+        
     func makingDate(with: User) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
@@ -95,6 +93,4 @@ class EditView: BaseView {
         let formattedDate = dateFormatter.string(from: date)
         return formattedDate
     }
-    
-    
 }
