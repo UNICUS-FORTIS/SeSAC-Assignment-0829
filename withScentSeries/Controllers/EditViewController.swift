@@ -66,7 +66,6 @@ class EditViewController: UIViewController {
         
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
-        // 피커뷰 띄우기
         self.present(picker, animated: true, completion: nil)
     }
 }
