@@ -8,5 +8,6 @@
 import Foundation
 
 extension NSNotification.Name {
-    static let updateImage = NSNotification.Name("infoUpdate")
+    static let infoUpdate = NSNotification.Name("infoUpdate")
+    static let infoCreate = NSNotification.Name("infoCreate")
 }

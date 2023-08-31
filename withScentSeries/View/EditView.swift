@@ -9,12 +9,12 @@ import UIKit
 
 class EditView: BaseView {
     
-    var user: User? {
+    var user: CustomUser? {
         didSet {
             guard let user = user else { return }
             self.mainImageView.image = user.photo
             self.titleLabel.text = user.title
-            self.writtenDate.text = makingDate(with: user)
+            self.writtenDate.text = user.writtenDate
             self.descriptionLabel.text = user.description
         }
     }
@@ -86,11 +86,5 @@ class EditView: BaseView {
         }
     }
         
-    func makingDate(with: User) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-        guard let date = dateFormatter.date(from: with.writtenDate) else { return "" }
-        let formattedDate = dateFormatter.string(from: date)
-        return formattedDate
-    }
+    
 }

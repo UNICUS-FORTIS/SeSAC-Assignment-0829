@@ -26,7 +26,7 @@ extension UICollectionView {
         layout.sectionInset = UIEdgeInsets(
             top: spacing,
             left: 0,
-            bottom: spacing,
+            bottom: spacing * 2,
             right: 0)
         
         return layout

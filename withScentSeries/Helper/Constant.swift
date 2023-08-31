@@ -11,6 +11,7 @@ enum Icons {
     static let editButton = UIImage(systemName: "pencil")
     static let addButton = UIImage(systemName: "plus")
     static let checkButton = UIImage(systemName: "checkmark")
+    static let xButton = UIImage(systemName: "xmark")
 
 }
 

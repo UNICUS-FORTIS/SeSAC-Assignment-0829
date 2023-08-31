@@ -11,7 +11,7 @@ import PhotosUI
 class EditViewController: UIViewController {
     
     let editView = EditView()
-    var user: User?
+    var user: CustomUser?
     
     override func loadView() {
         super.loadView()
@@ -39,15 +39,13 @@ class EditViewController: UIViewController {
     
     // MARK: - 옵저버 실행
     @objc private func checkButtonTapped() {
-        
-        self.user?.id = editView.user?.id ?? 0
         self.user?.photo = editView.mainImageView.image ?? UIImage()
         self.user?.title = editView.titleLabel.text ?? ""
         self.user?.description = editView.descriptionLabel.text
         self.editView.user = user
         
         let userInfo: [String: Any] = ["updateInfo": user!]
-        NotificationCenter.default.post(name: .updateImage, object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: .infoUpdate, object: nil, userInfo: userInfo)
         
         navigationController?.popViewController(animated: true)
     }

@@ -10,7 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     let detailView = DetailView()
-    var user: User?
+    var user: CustomUser?
     
     override func loadView() {
         self.view = detailView
@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
         configureNavigationBar()
         setupData()
         // MARK: - 옵저버 등록
-        NotificationCenter.default.addObserver(self, selector: #selector(updateInformation), name: .updateImage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateInformation), name: .infoUpdate, object: nil)
     }
     
     private func setupData() {
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     }
     
     @objc func updateInformation(notification: Notification) {
-        if let userInfo = notification.userInfo?["updateInfo"] as? User {
+        if let userInfo = notification.userInfo?["updateInfo"] as? CustomUser {
             self.user = userInfo
             self.detailView.user = userInfo
         }
@@ -53,7 +53,8 @@ class DetailViewController: UIViewController {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .updateImage, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .infoUpdate, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .infoCreate, object: nil)
     }
 }
 

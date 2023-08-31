@@ -10,7 +10,7 @@ import UIKit
 
 class DetailView: BaseView {
     
-    var user: User? {
+    var user: CustomUser? {
         didSet {
             guard let user = user else { return }
             self.mainImageView.image = user.photo
@@ -60,12 +60,11 @@ class DetailView: BaseView {
     }
     
     override func setConstraints() {
-        DispatchQueue.main.async {
-            self.mainImageView.snp.makeConstraints { make in
+        
+        mainImageView.snp.makeConstraints { make in
                 make.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
                 make.height.equalTo(self).multipliedBy(0.3)
             }
-        }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(mainImageView.snp.bottom).offset(4)
@@ -87,7 +86,7 @@ class DetailView: BaseView {
         }
     }
     
-    func makingDate(with: User) -> String {
+    func makingDate(with: CustomUser) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         guard let date = dateFormatter.date(from: with.writtenDate) else { return "" }

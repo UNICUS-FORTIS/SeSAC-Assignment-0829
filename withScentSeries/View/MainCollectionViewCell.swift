@@ -7,17 +7,26 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class MainCollectionViewCell: UICollectionViewCell {
-        
-    var user: User? {
+    
+    var user: CustomUser? {
         didSet {
             mainImageView.image = user?.photo
         }
     }
     
+    var splashData: UnsplashResult? {
+        didSet {
+            let url = splashData?.urls.regular
+            print("SplashData DidSet: \(url)")
+//            mainImageView.kf.setImage(with: url)
+        }
+    }
+    
     var mainImageView: UIImageView = {
-       let view = UIImageView()
+        let view = UIImageView()
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -40,9 +49,5 @@ class MainCollectionViewCell: UICollectionViewCell {
         mainImageView.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }
-    }
-    
-    func cellConfiguration(with: User) {
-        mainImageView.image = with.photo
     }
 }

@@ -15,16 +15,25 @@
 		DE062BBA2A9E2DEB006A7B1B /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BB92A9E2DEB006A7B1B /* EditView.swift */; };
 		DE062BC02A9E305B006A7B1B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE062BBF2A9E305B006A7B1B /* SnapKit */; };
 		DE062BC22A9E32FF006A7B1B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BC12A9E32FF006A7B1B /* Constant.swift */; };
-		DE062BC42A9E39AA006A7B1B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BC32A9E39AA006A7B1B /* User.swift */; };
+		DE062BC42A9E39AA006A7B1B /* CustomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BC32A9E39AA006A7B1B /* CustomUser.swift */; };
 		DE062BC62A9E3BA9006A7B1B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BC52A9E3BA9006A7B1B /* EditViewController.swift */; };
 		DE062BC82A9E3CCC006A7B1B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BC72A9E3CCC006A7B1B /* MainView.swift */; };
 		DE062BCA2A9E3D7B006A7B1B /* CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BC92A9E3D7B006A7B1B /* CollectionView+Extension.swift */; };
 		DE062BCE2A9E482B006A7B1B /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BCD2A9E482B006A7B1B /* MainCollectionViewCell.swift */; };
 		DE062BD02A9E48BE006A7B1B /* ReusableProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BCF2A9E48BE006A7B1B /* ReusableProtocols.swift */; };
-		DE6151BF2A9E61E300CD51A1 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151BE2A9E61E300CD51A1 /* UserData.swift */; };
+		DE6151BF2A9E61E300CD51A1 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151BE2A9E61E300CD51A1 /* UserDataManager.swift */; };
 		DE6151C12A9E67F900CD51A1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C02A9E67F900CD51A1 /* DetailViewController.swift */; };
 		DE6151C32A9E680A00CD51A1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C22A9E680A00CD51A1 /* DetailView.swift */; };
 		DE6151C62A9E684800CD51A1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6151C52A9E684800CD51A1 /* BaseView.swift */; };
+		DE6773762AA0D16A00F582EE /* AddGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6773752AA0D16A00F582EE /* AddGalleryViewController.swift */; };
+		DE67737D2AA0EF4900F582EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE67737C2AA0EF4900F582EE /* NetworkManager.swift */; };
+		DE67737F2AA0FFCD00F582EE /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE67737E2AA0FFCD00F582EE /* Unsplash.swift */; };
+		DE6773812AA1013500F582EE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6773802AA1013500F582EE /* SplashViewController.swift */; };
+		DE6773832AA1014500F582EE /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6773822AA1014500F582EE /* SplashView.swift */; };
+		DE6773882AA1037600F582EE /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6773872AA1037600F582EE /* URL+Extension.swift */; };
+		DE67738A2AA1045100F582EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DE6773892AA1045100F582EE /* .gitignore */; };
+		DE67738C2AA1046C00F582EE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE67738B2AA1046C00F582EE /* APIKey.swift */; };
+		DE6773922AA1096000F582EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DE6773912AA1096000F582EE /* Kingfisher */; };
 		DEA11F762A9EBCB4003BB5A9 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA11F752A9EBCB4003BB5A9 /* NotificationName+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,16 +47,24 @@
 		DE062BAC2A9E2A57006A7B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE062BB92A9E2DEB006A7B1B /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		DE062BC12A9E32FF006A7B1B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		DE062BC32A9E39AA006A7B1B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DE062BC32A9E39AA006A7B1B /* CustomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUser.swift; sourceTree = "<group>"; };
 		DE062BC52A9E3BA9006A7B1B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DE062BC72A9E3CCC006A7B1B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DE062BC92A9E3D7B006A7B1B /* CollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DE062BCD2A9E482B006A7B1B /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE062BCF2A9E48BE006A7B1B /* ReusableProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocols.swift; sourceTree = "<group>"; };
-		DE6151BE2A9E61E300CD51A1 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		DE6151BE2A9E61E300CD51A1 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		DE6151C02A9E67F900CD51A1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DE6151C22A9E680A00CD51A1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DE6151C52A9E684800CD51A1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		DE6773752AA0D16A00F582EE /* AddGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGalleryViewController.swift; sourceTree = "<group>"; };
+		DE67737C2AA0EF4900F582EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DE67737E2AA0FFCD00F582EE /* Unsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
+		DE6773802AA1013500F582EE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DE6773822AA1014500F582EE /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		DE6773872AA1037600F582EE /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		DE6773892AA1045100F582EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DE67738B2AA1046C00F582EE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		DEA11F752A9EBCB4003BB5A9 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE6773922AA1096000F582EE /* Kingfisher in Frameworks */,
 				DE062BC02A9E305B006A7B1B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +103,7 @@
 				DE062BB82A9E2A75006A7B1B /* App */,
 				DE062BB72A9E2A72006A7B1B /* Extensions */,
 				DE062BB62A9E2A70006A7B1B /* Protocols */,
+				DE67737B2AA0EF3900F582EE /* NetworkManager */,
 				DE062BB42A9E2A6B006A7B1B /* Helper */,
 				DE062BB52A9E2A6E006A7B1B /* Model */,
 				DE062BB32A9E2A69006A7B1B /* View */,
@@ -92,6 +111,8 @@
 				DE062BA72A9E2A57006A7B1B /* Assets.xcassets */,
 				DE062BA92A9E2A57006A7B1B /* LaunchScreen.storyboard */,
 				DE062BAC2A9E2A57006A7B1B /* Info.plist */,
+				DE6773892AA1045100F582EE /* .gitignore */,
+				DE67738B2AA1046C00F582EE /* APIKey.swift */,
 			);
 			path = withScentSeries;
 			sourceTree = "<group>";
@@ -102,6 +123,8 @@
 				DE062BA22A9E2A56006A7B1B /* MainViewController.swift */,
 				DE062BC52A9E3BA9006A7B1B /* EditViewController.swift */,
 				DE6151C02A9E67F900CD51A1 /* DetailViewController.swift */,
+				DE6773752AA0D16A00F582EE /* AddGalleryViewController.swift */,
+				DE6773802AA1013500F582EE /* SplashViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +136,7 @@
 				DE062BC72A9E3CCC006A7B1B /* MainView.swift */,
 				DE062BCD2A9E482B006A7B1B /* MainCollectionViewCell.swift */,
 				DE6151C22A9E680A00CD51A1 /* DetailView.swift */,
+				DE6773822AA1014500F582EE /* SplashView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,8 +153,9 @@
 		DE062BB52A9E2A6E006A7B1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DE062BC32A9E39AA006A7B1B /* User.swift */,
-				DE6151BE2A9E61E300CD51A1 /* UserData.swift */,
+				DE062BC32A9E39AA006A7B1B /* CustomUser.swift */,
+				DE6151BE2A9E61E300CD51A1 /* UserDataManager.swift */,
+				DE67737E2AA0FFCD00F582EE /* Unsplash.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,6 +173,7 @@
 			children = (
 				DE062BC92A9E3D7B006A7B1B /* CollectionView+Extension.swift */,
 				DEA11F752A9EBCB4003BB5A9 /* NotificationName+Extension.swift */,
+				DE6773872AA1037600F582EE /* URL+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,6 +195,14 @@
 			path = BaseComponents;
 			sourceTree = "<group>";
 		};
+		DE67737B2AA0EF3900F582EE /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				DE67737C2AA0EF4900F582EE /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +221,7 @@
 			name = withScentSeries;
 			packageProductDependencies = (
 				DE062BBF2A9E305B006A7B1B /* SnapKit */,
+				DE6773912AA1096000F582EE /* Kingfisher */,
 			);
 			productName = withScentSeries;
 			productReference = DE062B9B2A9E2A56006A7B1B /* withScentSeries.app */;
@@ -218,6 +253,7 @@
 			mainGroup = DE062B922A9E2A56006A7B1B;
 			packageReferences = (
 				DE062BBE2A9E305B006A7B1B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DE6773902AA1096000F582EE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DE062B9C2A9E2A56006A7B1B /* Products */;
 			projectDirPath = "";
@@ -234,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE062BAB2A9E2A57006A7B1B /* LaunchScreen.storyboard in Resources */,
+				DE67738A2AA1045100F582EE /* .gitignore in Resources */,
 				DE062BA82A9E2A57006A7B1B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,22 +282,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE67737D2AA0EF4900F582EE /* NetworkManager.swift in Sources */,
+				DE6773762AA0D16A00F582EE /* AddGalleryViewController.swift in Sources */,
+				DE67738C2AA1046C00F582EE /* APIKey.swift in Sources */,
 				DE6151C12A9E67F900CD51A1 /* DetailViewController.swift in Sources */,
+				DE6773882AA1037600F582EE /* URL+Extension.swift in Sources */,
 				DEA11F762A9EBCB4003BB5A9 /* NotificationName+Extension.swift in Sources */,
 				DE062BCE2A9E482B006A7B1B /* MainCollectionViewCell.swift in Sources */,
-				DE062BC42A9E39AA006A7B1B /* User.swift in Sources */,
+				DE062BC42A9E39AA006A7B1B /* CustomUser.swift in Sources */,
 				DE6151C32A9E680A00CD51A1 /* DetailView.swift in Sources */,
 				DE062BC82A9E3CCC006A7B1B /* MainView.swift in Sources */,
 				DE062BA32A9E2A56006A7B1B /* MainViewController.swift in Sources */,
 				DE062BC62A9E3BA9006A7B1B /* EditViewController.swift in Sources */,
+				DE67737F2AA0FFCD00F582EE /* Unsplash.swift in Sources */,
 				DE062BCA2A9E3D7B006A7B1B /* CollectionView+Extension.swift in Sources */,
-				DE6151BF2A9E61E300CD51A1 /* UserData.swift in Sources */,
+				DE6151BF2A9E61E300CD51A1 /* UserDataManager.swift in Sources */,
 				DE062BBA2A9E2DEB006A7B1B /* EditView.swift in Sources */,
 				DE062BD02A9E48BE006A7B1B /* ReusableProtocols.swift in Sources */,
 				DE062BC22A9E32FF006A7B1B /* Constant.swift in Sources */,
 				DE6151C62A9E684800CD51A1 /* BaseView.swift in Sources */,
 				DE062B9F2A9E2A56006A7B1B /* AppDelegate.swift in Sources */,
 				DE062BA12A9E2A56006A7B1B /* SceneDelegate.swift in Sources */,
+				DE6773812AA1013500F582EE /* SplashViewController.swift in Sources */,
+				DE6773832AA1014500F582EE /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +530,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		DE6773902AA1096000F582EE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -493,6 +545,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE062BBE2A9E305B006A7B1B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DE6773912AA1096000F582EE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE6773902AA1096000F582EE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
