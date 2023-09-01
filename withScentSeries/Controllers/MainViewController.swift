@@ -47,7 +47,7 @@ final class MainViewController: UIViewController {
     // MARK: - 업데이트 노티피케이션 메서드 등록
     @objc func updateInformation(notification: Notification) {
         if let userInfo = notification.userInfo?["updateInfo"] as? CustomUser {
-            userDataManager.updateUserInfomation(index: userInfo.id, with: userInfo)
+            userDataManager.updateUserInfomation(with: userInfo)
             DispatchQueue.main.async {
                 self.mainView.collectionView.reloadData()
             }
@@ -71,6 +71,9 @@ final class MainViewController: UIViewController {
         
         let fromGallery = UIAlertAction(title: "갤러리에서 가져오기", style: .default) { _ in
             let vc = AddGalleryViewController()
+            vc.completion = {
+                vc.touchUpImageView()
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

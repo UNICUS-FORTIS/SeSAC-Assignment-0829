@@ -23,9 +23,11 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         splashView.collectionView.dataSource = self
+        splashView.collectionView.delegate = self
         splashView.collectionView.prefetchDataSource = self
         splashView.searchBar.delegate = self
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        navigationController?.hidesBarsOnSwipe = true
     }
 }
 
@@ -76,16 +78,33 @@ extension SplashViewController: UICollectionViewDataSourcePrefetching {
 }
 
 
-//extension SplashViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//        let vc = DetailViewController()
-//
-//        vc.user = self.userDataManager.getMembersList()[indexPath.row]
-//
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//}
+extension SplashViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentDate = Date()
+        let formattedDate = SplashViewController.makingDate(with: currentDate)
+        
+        let fullImageString = resultArray[indexPath.item].urls.full
+        let url = URL(string: fullImageString)
+        
+        DispatchQueue.global().async {
+            let targetImage = try! Data(contentsOf: url!)
+            guard let fullImage = UIImage(data: targetImage) else { return }
+            
+            DispatchQueue.main.async {
+                let newData = CustomUser(photo: fullImage,
+                                         writtenDate: formattedDate,
+                                         title: "제목",
+                                         description: "내용을 입력해주세요.")
+                let vc = AddGalleryViewController()
+                vc.user = newData
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }
+        
+        
+    }
+}
 // MARK: - Extension SearchBar Delegate
 extension SplashViewController: UISearchBarDelegate {
     
@@ -115,11 +134,10 @@ extension SplashViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
         self.splashView.searchBar.text = ""
         self.currentPage = 1
         self.resultArray.removeAll()
-        DispatchQueue.main.async {
-            self.splashView.collectionView.reloadData()
-        }
+        self.splashView.collectionView.reloadData()
     }
 }

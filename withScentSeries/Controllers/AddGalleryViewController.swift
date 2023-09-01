@@ -22,7 +22,7 @@ final class AddGalleryViewController: UIViewController {
         super.viewDidLoad()
         setDefaultInformation()
         configureNavigationBarItem()
-        touchUpImageView()
+        completion()
     }
     
     private func configureNavigationBarItem() {
@@ -32,39 +32,41 @@ final class AddGalleryViewController: UIViewController {
                                                             action: #selector(doneButtonTapped))
     }
     
+    // MARK: - declare completion for MainViewController diversity of action.
+    var completion: () -> () = {}
+
+    
     @objc func doneButtonTapped() {
+        let currentDate = Date()
         let photo = editView.mainImageView.image ?? UIImage()
         let title = editView.titleLabel.text ?? ""
-        let date = editView.writtenDate.text ?? ""
+        let formattedDate = AddGalleryViewController.makingDate(with: currentDate)
         let description = editView.descriptionLabel.text ?? ""
-        let newData = CustomUser(photo: photo, writtenDate: date, title: title, description: description)
+        let newData = CustomUser(photo: photo, writtenDate: formattedDate, title: title, description: description)
         
         let userInfo: [String: Any] = ["addNewInfo": newData]
         NotificationCenter.default.post(name: .infoCreate, object: nil, userInfo: userInfo)
         
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
+
     }
     
     private func setDefaultInformation() {
-            
+        
         let currentDate = Date()
-        let formattedDate = self.makingDate(with: currentDate)
-    
-        let newData = CustomUser(photo: UIImage(), writtenDate: formattedDate, title: "제목", description: "내용을 입력해주세요.")
-        self.editView.user = newData
+        let formattedDate = AddGalleryViewController.makingDate(with: currentDate)
+        if let existUser = self.user {
+            self.editView.user = existUser
+        } else {
+            let newData = CustomUser(photo: UIImage(),
+                                     writtenDate: formattedDate,
+                                     title: "제목",
+                                     description: "내용을 입력해주세요.")
+            self.editView.user = newData
+        }
     }
     
-    private func makingDate(with date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        let locatTime = TimeZone.current
-        dateFormatter.timeZone = locatTime
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-        let formattedDate = dateFormatter.string(from: date)
-        return formattedDate
-    }
-    
-    
-// MARK: - 피커뷰 소환
+    // MARK: - 피커뷰 소환
     @objc func touchUpImageView() {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 1
@@ -92,7 +94,7 @@ extension AddGalleryViewController: PHPickerViewControllerDelegate {
                 }
             }
         } else {
-            navigationController?.popViewController(animated: true)
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 }

@@ -11,10 +11,13 @@ import UIKit
 final class SplashView:BaseView {
     
     let searchBar = {
-        let view = UISearchBar()
-        view.placeholder = "검색어를 입력하세요."
-        view.tintColor = .black
-        return view
+        let bar = UISearchBar()
+        bar.placeholder = "검색어를 입력하세요."
+        bar.tintColor = .black
+        bar.showsCancelButton = true
+        bar.autocapitalizationType = .none
+        bar.autocorrectionType = .no
+        return bar
     }()
     
     lazy var collectionView = {

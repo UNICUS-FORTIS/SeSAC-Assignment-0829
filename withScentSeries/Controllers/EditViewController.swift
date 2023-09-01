@@ -37,6 +37,7 @@ final class EditViewController: UIViewController {
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
+    
     // MARK: - 옵저버 실행
     @objc private func checkButtonTapped() {
         self.user?.photo = editView.mainImageView.image ?? UIImage()
@@ -47,7 +48,7 @@ final class EditViewController: UIViewController {
         let userInfo: [String: Any] = ["updateInfo": user!]
         NotificationCenter.default.post(name: .infoUpdate, object: nil, userInfo: userInfo)
         
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - 제스처 등록

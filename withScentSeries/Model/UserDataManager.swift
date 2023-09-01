@@ -35,11 +35,16 @@ final class UserDataManager {
     
     func makeNewUser(_ user: CustomUser) {
         userList.insert(user, at: 0)
+        print("created: \(user)")
     }
     
-    func updateUserInfomation(index: Int, with user: CustomUser) {
-        userList[index] = user
+    func updateUserInfomation(with user: CustomUser) {
+        if let index = userList.firstIndex(where: { $0.id == user.id }) {
+            userList[index] = user
+        }
     }
+    
+    
     
     subscript(index: Int) -> CustomUser {
         get {
