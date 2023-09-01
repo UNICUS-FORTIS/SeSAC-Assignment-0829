@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class EditViewController: UIViewController {
+final class EditViewController: UIViewController {
     
     let editView = EditView()
     var user: CustomUser?

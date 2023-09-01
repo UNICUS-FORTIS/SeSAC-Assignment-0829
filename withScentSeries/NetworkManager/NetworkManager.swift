@@ -18,9 +18,12 @@ final class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
-    func requestData(query: String, completion: @escaping (Result<UnsplashData, NetworkError>) -> Void) {
-        
-        guard let url = URL.requestURL(page: 1, lang: "ko", query: query) else { return }
+    
+    func requestData(query: String,
+                     page: Int,
+                     completion: @escaping (Result<UnsplashData, NetworkError>) -> Void) {
+
+        guard let url = URL.requestURL(page: page, lang: "ko", query: query) else { return }
         var request = URLRequest(url: url)
         
         request.addValue(Headers.HeaderValue, forHTTPHeaderField: Headers.HeaderName)

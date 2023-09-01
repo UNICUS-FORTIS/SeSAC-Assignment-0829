@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class AddGalleryViewController: UIViewController {
+final class AddGalleryViewController: UIViewController {
     
     
     private let editView = EditView()
@@ -74,8 +74,6 @@ class AddGalleryViewController: UIViewController {
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
-    
-    
 }
 
 // MARK: - PHPicker등록

@@ -15,9 +15,7 @@ final class MainViewController: UIViewController {
     
     override func loadView() {
         self.view = mainView
-    }
-    
-    
+    }    
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
