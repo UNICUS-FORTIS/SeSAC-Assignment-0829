@@ -45,7 +45,6 @@ class DetailViewController: UIViewController {
     }
     
     @objc private func editButtonTapped() {
-        print(#function)
         let vc = EditViewController()
         guard let user = user else { return }
         vc.user = user

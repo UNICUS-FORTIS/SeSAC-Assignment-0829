@@ -51,7 +51,6 @@ class AddGalleryViewController: UIViewController {
         let formattedDate = self.makingDate(with: currentDate)
     
         let newData = CustomUser(photo: UIImage(), writtenDate: formattedDate, title: "제목", description: "내용을 입력해주세요.")
-        print(newData.writtenDate)
         self.editView.user = newData
     }
     

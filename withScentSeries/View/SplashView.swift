@@ -13,12 +13,13 @@ final class SplashView:BaseView {
     let searchBar = {
         let view = UISearchBar()
         view.placeholder = "검색어를 입력하세요."
+        view.tintColor = .black
         return view
     }()
     
     lazy var collectionView = {
         let cv = UICollectionView(frame: .zero,
-                                  collectionViewLayout: UICollectionView.setCollectionViewLayout(scrollAxis: .vertical, numberOfaxis: 4, numberOfCrossAxis: 3, spacing: 10))
+                                  collectionViewLayout: UICollectionView.setCollectionViewLayout(scrollAxis: .vertical, numberOfaxis: 5, numberOfCrossAxis: 2, spacing: 8))
         cv.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "MainCollectionViewCell")
         
         return cv

@@ -154,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				DE062BC32A9E39AA006A7B1B /* CustomUser.swift */,
-				DE6151BE2A9E61E300CD51A1 /* UserDataManager.swift */,
 				DE67737E2AA0FFCD00F582EE /* Unsplash.swift */,
+				DE6151BE2A9E61E300CD51A1 /* UserDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

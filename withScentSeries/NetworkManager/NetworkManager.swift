@@ -20,8 +20,7 @@ final class NetworkManager {
     
     func requestData(query: String, completion: @escaping (Result<UnsplashData, NetworkError>) -> Void) {
         
-        let apiKey = APIKey.accessKey
-        let url = URL.requestURL(page: 1, lang: "ko", query: "Moon")!
+        guard let url = URL.requestURL(page: 1, lang: "ko", query: query) else { return }
         var request = URLRequest(url: url)
         
         request.addValue(Headers.HeaderValue, forHTTPHeaderField: Headers.HeaderName)

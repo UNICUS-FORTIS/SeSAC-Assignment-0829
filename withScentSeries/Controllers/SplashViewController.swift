@@ -9,6 +9,7 @@ import UIKit
 
 class SplashViewController: UIViewController {
     
+    
     var resultArray:[UnsplashResult] = []
     let networkManager = NetworkManager.shared
     
@@ -19,32 +20,13 @@ class SplashViewController: UIViewController {
         self.view = splashView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         splashView.collectionView.dataSource = self
-        fetchDatas()
+        splashView.searchBar.delegate = self
     }
     
-    private func fetchDatas() {
-        
-        networkManager.requestData(query: "Moon") { [weak self] result in
-            switch result {
-            case .success(let photo):
-                self?.resultArray.append(contentsOf: photo.results)
-                
-            case .failure(let error):
-                switch error {
-                case .dataError:
-                    print("데이터 에러")
-                case .networkingError:
-                    print("네트워킹 에러")
-                case .parseError:
-                    print("파싱 에러")
-                }
-            }
-        }
-    }
+    
 }
 
 extension SplashViewController: UICollectionViewDataSource {
@@ -54,6 +36,7 @@ extension SplashViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell()}
+        
         cell.splashData = resultArray[indexPath.item]
         
         return cell
@@ -70,3 +53,33 @@ extension SplashViewController: UICollectionViewDataSource {
 //        navigationController?.pushViewController(vc, animated: true)
 //    }
 //}
+
+extension SplashViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.resultArray.removeAll(keepingCapacity: true)
+        
+        if let searchText = splashView.searchBar.text {
+            networkManager.requestData(query: searchText) { [weak self] result in
+                switch result {
+                case .success(let photo):
+                    self?.resultArray.append(contentsOf: photo.results)
+                    DispatchQueue.main.async {
+                        self?.splashView.collectionView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    switch error {
+                    case .dataError:
+                        print("데이터 에러")
+                    case .networkingError:
+                        print("네트워킹 에러")
+                    case .parseError:
+                        print("파싱 에러")
+                    }
+                }
+            }
+        }
+        
+    }
+}

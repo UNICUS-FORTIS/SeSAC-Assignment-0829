@@ -19,15 +19,15 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     var splashData: UnsplashResult? {
         didSet {
-            let url = splashData?.urls.regular
-            print("SplashData DidSet: \(url)")
-//            mainImageView.kf.setImage(with: url)
+            guard let data = splashData?.urls.thumb else { return }
+            let url = URL(string: data)
+            self.mainImageView.kf.setImage(with: url)
         }
     }
     
     var mainImageView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleToFill
         return view
     }()
     
