@@ -44,7 +44,7 @@ final class AddGalleryViewController: UIViewController {
         let description = editView.descriptionLabel.text ?? ""
         let newData = CustomUser(photo: photo, writtenDate: formattedDate, title: title, description: description)
         
-        let userInfo: [String: Any] = ["addNewInfo": newData]
+        let userInfo: [String: Any] = [NoticenterUserInfoName.addNewInfo: newData]
         NotificationCenter.default.post(name: .infoCreate, object: nil, userInfo: userInfo)
         
         navigationController?.popToRootViewController(animated: true)
@@ -91,6 +91,7 @@ extension AddGalleryViewController: PHPickerViewControllerDelegate {
                 DispatchQueue.main.async {
                     self.editView.mainImageView.image = image as? UIImage
                     self.user?.photo = image as? UIImage ?? UIImage()
+                    self.editView.titleLabel.becomeFirstResponder()
                 }
             }
         } else {

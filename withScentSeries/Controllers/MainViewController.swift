@@ -46,7 +46,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - 업데이트 노티피케이션 메서드 등록
     @objc func updateInformation(notification: Notification) {
-        if let userInfo = notification.userInfo?["updateInfo"] as? CustomUser {
+        if let userInfo = notification.userInfo?[NoticenterUserInfoName.updateInfo] as? CustomUser {
             userDataManager.updateUserInfomation(with: userInfo)
             DispatchQueue.main.async {
                 self.mainView.collectionView.reloadData()
@@ -56,7 +56,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - 신규 추가 노티피케이션 메서드 등록
     @objc func addNewInformation(notification: Notification) {
-        if let userInfo = notification.userInfo?["addNewInfo"] as? CustomUser {
+        if let userInfo = notification.userInfo?[NoticenterUserInfoName.addNewInfo] as? CustomUser {
             userDataManager.makeNewUser(userInfo)
             DispatchQueue.main.async {
                 self.mainView.collectionView.reloadData()
@@ -66,10 +66,10 @@ final class MainViewController: UIViewController {
     
     // MARK: - actionSheet 소환
     @objc func showActionSheet() {
-        let alert = UIAlertController(title: "어디에서 검색할까?", message: "검색할 위치를 선택해주세요.",
+        let alert = UIAlertController(title: AlertLiterals.alert, message: AlertLiterals.alertMeesage,
                                       preferredStyle: .actionSheet)
         
-        let fromGallery = UIAlertAction(title: "갤러리에서 가져오기", style: .default) { _ in
+        let fromGallery = UIAlertAction(title: AlertLiterals.fromGallery, style: .default) { _ in
             let vc = AddGalleryViewController()
             vc.completion = {
                 vc.touchUpImageView()
@@ -77,12 +77,12 @@ final class MainViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
-        let fromWeb = UIAlertAction(title: "웹에서 검색하기", style: .default) { fromWeb in
+        let fromWeb = UIAlertAction(title: AlertLiterals.fromWeb, style: .default) { fromWeb in
             let vc = SplashViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
-        let cancel = UIAlertAction(title: "취소", style: .default)
+        let cancel = UIAlertAction(title: AlertLiterals.cancel, style: .default)
         
         alert.addAction(fromGallery)
         alert.addAction(fromWeb)

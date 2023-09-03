@@ -38,7 +38,7 @@ final class DetailViewController: UIViewController {
     }
     
     @objc func updateInformation(notification: Notification) {
-        if let userInfo = notification.userInfo?["updateInfo"] as? CustomUser {
+        if let userInfo = notification.userInfo?[NoticenterUserInfoName.updateInfo] as? CustomUser {
             self.user = userInfo
             self.detailView.user = userInfo
         }
