@@ -118,7 +118,6 @@ extension MainViewController: UICollectionViewDelegate {
 // MARK: - Declare CollectionView Flowlayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
-    // UICollectionViewDelegateFlowLayout 프로토콜 메서드: 각 아이템의 크기 반환
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let screenWidth = UIScreen.main.bounds.width
