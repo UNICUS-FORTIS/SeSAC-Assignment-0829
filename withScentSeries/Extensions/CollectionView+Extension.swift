@@ -8,27 +8,29 @@
 import UIKit
 
 extension UICollectionView {
-    
-    static func setCollectionViewLayout(
-        scrollAxis: UICollectionView.ScrollDirection,
-        numberOfaxis: Int,
-        numberOfCrossAxis: Int,
-        spacing: CGFloat
-        ) -> UICollectionViewFlowLayout{
-        
+    static func setCollectionCustomLayout(itemWidthRatio: CGFloat,
+                                   itemHeightRatio: CGFloat,
+                                   minimumSpacing: CGFloat,
+                                   scrollDirection: UICollectionView.ScrollDirection)
+    -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        layout.scrollDirection = scrollAxis
-        let width = UIScreen.main.bounds.width - ( spacing * CGFloat(numberOfCrossAxis) )
-        let height = UIScreen.main.bounds.height - ( spacing * CGFloat(numberOfaxis) )
-        layout.itemSize = CGSize(width: width/CGFloat(numberOfCrossAxis), height: height/CGFloat(numberOfaxis))
-        layout.sectionInset = UIEdgeInsets(
-            top: spacing,
-            left: 0,
-            bottom: spacing * 2,
-            right: 0)
+        layout.minimumLineSpacing = minimumSpacing
+        layout.minimumInteritemSpacing = minimumSpacing
+        layout.sectionInset = UIEdgeInsets(top: minimumSpacing, left: 0, bottom: minimumSpacing, right: 0)
+        layout.scrollDirection = scrollDirection
         
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+                
+        if scrollDirection == .vertical {
+            let itemWidth = screenWidth * itemWidthRatio
+            let itemHeight = screenHeight * itemHeightRatio
+            layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        } else {
+            let itemWidth = screenHeight * itemWidthRatio
+            let itemHeight = screenWidth * itemHeightRatio
+            layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        }
         return layout
     }
 }

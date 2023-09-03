@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
     
     override func loadView() {
         self.view = mainView
-    }    
+    }
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -103,7 +103,7 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
+// MARK: - Declare CollectionView Delegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -112,5 +112,25 @@ extension MainViewController: UICollectionViewDelegate {
         vc.user = self.userDataManager.getMembersList()[indexPath.row]
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - Declare CollectionView Flowlayout
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    
+    // UICollectionViewDelegateFlowLayout 프로토콜 메서드: 각 아이템의 크기 반환
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let screenWidth = UIScreen.main.bounds.width
+        
+        let target = userDataManager[indexPath.row]
+        let width = target.photo.size.width
+        let height = target.photo.size.height
+        let widthRatio = width / height
+        let itemWidth = screenWidth
+        let itemHeight = screenWidth / widthRatio
+        
+        return CGSize(width: itemWidth, height: itemHeight)
+        
     }
 }

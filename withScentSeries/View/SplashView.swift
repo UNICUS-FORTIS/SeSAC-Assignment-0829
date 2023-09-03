@@ -21,8 +21,7 @@ final class SplashView:BaseView {
     }()
     
     lazy var collectionView = {
-        let cv = UICollectionView(frame: .zero,
-                                  collectionViewLayout: UICollectionView.setCollectionViewLayout(scrollAxis: .vertical, numberOfaxis: 5, numberOfCrossAxis: 2, spacing: 8))
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
         cv.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "MainCollectionViewCell")
         
         return cv
@@ -32,6 +31,11 @@ final class SplashView:BaseView {
     override func configureView() {
         addSubview(searchBar)
         addSubview(collectionView)
+    }
+    
+    private func collectionViewLayout() -> UICollectionViewFlowLayout {
+        lazy var layout = UICollectionView.setCollectionCustomLayout(itemWidthRatio: 1, itemHeightRatio: 0.5, minimumSpacing: 8, scrollDirection: .vertical)
+        return layout
     }
     
     override func setConstraints() {

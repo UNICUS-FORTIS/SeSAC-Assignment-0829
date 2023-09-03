@@ -27,7 +27,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     var mainImageView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
@@ -39,6 +39,12 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        splashData = nil
+        mainImageView.image = nil
     }
     
     func configureView() {

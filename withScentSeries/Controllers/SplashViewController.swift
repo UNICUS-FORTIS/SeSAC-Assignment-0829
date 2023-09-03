@@ -49,7 +49,6 @@ extension SplashViewController: UICollectionViewDataSource {
 extension SplashViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            print(resultArray.count-1, indexPath.item , currentPage)
             guard let searchText = splashView.searchBar.text else { return }
             if resultArray.count-1 == indexPath.item && currentPage < 10 {
                 self.currentPage += 1
@@ -77,6 +76,7 @@ extension SplashViewController: UICollectionViewDataSourcePrefetching {
     }
 }
 
+// MARK: - Declare CollectionView Delegate
 
 extension SplashViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -105,6 +105,7 @@ extension SplashViewController: UICollectionViewDelegate {
         
     }
 }
+
 // MARK: - Extension SearchBar Delegate
 extension SplashViewController: UISearchBarDelegate {
     
