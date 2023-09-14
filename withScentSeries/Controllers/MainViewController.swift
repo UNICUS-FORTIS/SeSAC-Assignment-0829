@@ -29,7 +29,11 @@ final class MainViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(addNewInformation), name: .infoCreate, object: nil)
+        
+        mainView.registerCell()
     }
+    
+    
     
     // MARK: - 최초 데이터 작성
     private func setupInitialDatas() {
@@ -98,8 +102,14 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell()}
-        cell.user = userDataManager[indexPath.row]
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell()}
+//        cell.user = userDataManager[indexPath.item]
+        
+        let data = userDataManager[indexPath.item]
+        let cell = collectionView.dequeueConfiguredReusableCell(using: mainView.cellRegistration,
+                                                                for: indexPath,
+                                                                item: data)
+        
         return cell
     }
 }
@@ -116,20 +126,20 @@ extension MainViewController: UICollectionViewDelegate {
 }
 
 // MARK: - Declare CollectionView Flowlayout
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let screenWidth = UIScreen.main.bounds.width
-        
-        let target = userDataManager[indexPath.row]
-        let width = target.photo.size.width
-        let height = target.photo.size.height
-        let widthRatio = width / height
-        let itemWidth = screenWidth
-        let itemHeight = screenWidth / widthRatio
-        
-        return CGSize(width: itemWidth, height: itemHeight)
-        
-    }
-}
+//extension MainViewController: UICollectionViewDelegateFlowLayout {
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        let screenWidth = UIScreen.main.bounds.width
+//        
+//        let target = userDataManager[indexPath.item]
+//        let width = target.photo.size.width
+//        let height = target.photo.size.height
+//        let widthRatio = width / height
+//        let itemWidth = screenWidth
+//        let itemHeight = screenWidth / widthRatio
+//        
+//        return CGSize(width: itemWidth, height: itemHeight)
+//        
+//    }
+//}
